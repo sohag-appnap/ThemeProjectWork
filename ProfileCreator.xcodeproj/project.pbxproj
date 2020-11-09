@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		282A09A7255903BF007D282F /* ButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282A09A6255903BF007D282F /* ButtonExtension.swift */; };
 		28426F712553D13900627647 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28426F702553D13900627647 /* AppDelegate.swift */; };
 		28426F732553D13900627647 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28426F722553D13900627647 /* SceneDelegate.swift */; };
 		28426F752553D13900627647 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28426F742553D13900627647 /* ViewController.swift */; };
@@ -14,9 +15,14 @@
 		28426F7B2553D13900627647 /* ProfileCreator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28426F792553D13900627647 /* ProfileCreator.xcdatamodeld */; };
 		28426F7D2553D13900627647 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28426F7C2553D13900627647 /* Assets.xcassets */; };
 		28426F802553D13900627647 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28426F7E2553D13900627647 /* LaunchScreen.storyboard */; };
+		28426F892553D1C500627647 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28426F882553D1C500627647 /* Extension.swift */; };
+		28426F8E2553EE9800627647 /* LikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28426F8D2553EE9800627647 /* LikeView.swift */; };
+		28426F922553EEAF00627647 /* LikeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28426F912553EEAF00627647 /* LikeView.xib */; };
+		28BE86192557F385000EA15F /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BE86182557F385000EA15F /* MyCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		282A09A6255903BF007D282F /* ButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonExtension.swift; sourceTree = "<group>"; };
 		28426F6D2553D13900627647 /* ProfileCreator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProfileCreator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28426F702553D13900627647 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28426F722553D13900627647 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +32,10 @@
 		28426F7C2553D13900627647 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28426F7F2553D13900627647 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		28426F812553D13900627647 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28426F882553D1C500627647 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		28426F8D2553EE9800627647 /* LikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeView.swift; sourceTree = "<group>"; };
+		28426F912553EEAF00627647 /* LikeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LikeView.xib; sourceTree = "<group>"; };
+		28BE86182557F385000EA15F /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +49,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		282A09AA2559381E007D282F /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				28426F882553D1C500627647 /* Extension.swift */,
+				282A09A6255903BF007D282F /* ButtonExtension.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		28426F642553D13900627647 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +77,9 @@
 		28426F6F2553D13900627647 /* ProfileCreator */ = {
 			isa = PBXGroup;
 			children = (
+				28BE86172557F353000EA15F /* Cells */,
+				28426F8C2553EE5D00627647 /* CustomViews */,
+				282A09AA2559381E007D282F /* Helper */,
 				28426F702553D13900627647 /* AppDelegate.swift */,
 				28426F722553D13900627647 /* SceneDelegate.swift */,
 				28426F742553D13900627647 /* ViewController.swift */,
@@ -68,6 +90,23 @@
 				28426F792553D13900627647 /* ProfileCreator.xcdatamodeld */,
 			);
 			path = ProfileCreator;
+			sourceTree = "<group>";
+		};
+		28426F8C2553EE5D00627647 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				28426F8D2553EE9800627647 /* LikeView.swift */,
+				28426F912553EEAF00627647 /* LikeView.xib */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		28BE86172557F353000EA15F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				28BE86182557F385000EA15F /* MyCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28426F802553D13900627647 /* LaunchScreen.storyboard in Resources */,
+				28426F922553EEAF00627647 /* LikeView.xib in Resources */,
 				28426F7D2553D13900627647 /* Assets.xcassets in Resources */,
 				28426F782553D13900627647 /* Main.storyboard in Resources */,
 			);
@@ -140,8 +180,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28426F892553D1C500627647 /* Extension.swift in Sources */,
+				282A09A7255903BF007D282F /* ButtonExtension.swift in Sources */,
+				28BE86192557F385000EA15F /* MyCollectionViewCell.swift in Sources */,
 				28426F7B2553D13900627647 /* ProfileCreator.xcdatamodeld in Sources */,
 				28426F752553D13900627647 /* ViewController.swift in Sources */,
+				28426F8E2553EE9800627647 /* LikeView.swift in Sources */,
 				28426F712553D13900627647 /* AppDelegate.swift in Sources */,
 				28426F732553D13900627647 /* SceneDelegate.swift in Sources */,
 			);
