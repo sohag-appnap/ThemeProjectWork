@@ -55,6 +55,7 @@ class ViewController: UIViewController {
         view.layer.shadowOffset = CGSize(width: 0, height: 5)
         view.layer.shadowRadius = 15
         view.layer.shadowOpacity = 0.2
+        view.addBlurEffect()
         return view
     }()
     
