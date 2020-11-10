@@ -421,8 +421,8 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offset = -(view.height * 0.11160714)
-        print("Offset: ", scrollView.contentOffset.y)
+        let offset = -topInset
+        print("Offset: ", scrollView.contentOffset.y, topInset)
         if scrollView == mainScrollView{
             let newAlpha = 1 - (scrollView.contentOffset.y/offset)
             print("Alpha ",newAlpha)
