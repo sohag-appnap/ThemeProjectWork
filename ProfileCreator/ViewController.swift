@@ -190,7 +190,7 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         print("Size: ",profileCollectionView.contentSize.height)
-        mainScrollView.contentSize.height = profileCollectionView.contentSize.height + (view.height*0.4) + 8
+        mainScrollView.contentSize.height = profileCollectionView.contentSize.height + (view.height*0.4)
         followButton.layer.cornerRadius = followButton.frame.height/2
     }
     
@@ -243,11 +243,11 @@ class ViewController: UIViewController {
         likeStack.centerX(inView: view)
         profileInfoViews()
         
-        themeTypeStack.anchorView(top: likeStack.bottomAnchor, paddingTop: 24, width: view.width * 0.38405797, height: view.height * 0.04241071)
+        themeTypeStack.anchorView(top: likeStack.bottomAnchor, paddingTop: 24, width: view.width * 0.45, height: view.height * 0.04241071)
         themeTypeStack.centerX(inView: view)
         addThemeTypeAttributes()
         
-        profileCollectionView.anchorView(top: themeTypeStack.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 8)
+        profileCollectionView.anchorView(top: themeTypeStack.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
         optionButton.anchorView(bottom: navigationView.bottomAnchor, right: view.rightAnchor, width: 80, height: 80)
         navigationTitle.anchorView(left: navigationView.leftAnchor, bottom: navigationView.bottomAnchor, right: optionButton.leftAnchor, paddingLeft: 20, height: 80)
         optionStackView.anchorView(top: view.safeAreaLayoutGuide.topAnchor, right: view.rightAnchor, paddingTop: 16, paddingRight: 20, width: 124, height: 189)
