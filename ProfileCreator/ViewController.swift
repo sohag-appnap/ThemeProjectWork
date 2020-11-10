@@ -357,6 +357,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
                 navigationView.alpha = 0
             }else{
                 navigationView.alpha = 1
+                optionStackView.isHidden = true
             }
         }
     }
