@@ -144,6 +144,40 @@ class ViewController: UIViewController {
         view.backgroundColor = .clear
         return view
     }()
+    
+    private let themeTypeStack: UIStackView = {
+        let view = UIStackView()
+        view.axis = .horizontal
+        view.alignment = .fill
+        view.distribution = .fillEqually
+        view.spacing = 0
+        view.backgroundColor = .clear
+        return view
+    }()
+    
+    private let privateButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Private", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 17)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.setTitleColor(.black, for: .normal)
+        button.alpha = 0.5
+        button.tag = 1
+        button.addTarget(self, action: #selector(themeTypeButtonAction), for: .touchUpInside)
+        return button
+    }()
+    
+    private let publishedButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Published", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 17)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.setTitleColor(.black, for: .normal)
+        button.isEnabled = false
+        button.tag = 2
+        button.addTarget(self, action: #selector(themeTypeButtonAction), for: .touchUpInside)
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -156,7 +190,7 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         print("Size: ",profileCollectionView.contentSize.height)
-        mainScrollView.contentSize.height = profileCollectionView.contentSize.height + (view.height*0.327) + 13
+        mainScrollView.contentSize.height = profileCollectionView.contentSize.height + (view.height*0.4) + 8
         followButton.layer.cornerRadius = followButton.frame.height/2
     }
     
@@ -183,6 +217,7 @@ class ViewController: UIViewController {
         mainScrollView.addSubview(likeStack)
         mainScrollView.addSubview(profileCollectionView)
         mainScrollView.addSubview(followerStack)
+        mainScrollView.addSubview(themeTypeStack)
         
         view.addSubview(optionButton)
         view.addSubview(optionStackView)
@@ -208,7 +243,11 @@ class ViewController: UIViewController {
         likeStack.centerX(inView: view)
         profileInfoViews()
         
-        profileCollectionView.anchorView(top: likeStack.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 16)
+        themeTypeStack.anchorView(top: likeStack.bottomAnchor, paddingTop: 24, width: view.width * 0.38405797, height: view.height * 0.04241071)
+        themeTypeStack.centerX(inView: view)
+        addThemeTypeAttributes()
+        
+        profileCollectionView.anchorView(top: themeTypeStack.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 8)
         optionButton.anchorView(bottom: navigationView.bottomAnchor, right: view.rightAnchor, width: 80, height: 80)
         navigationTitle.anchorView(left: navigationView.leftAnchor, bottom: navigationView.bottomAnchor, right: optionButton.leftAnchor, paddingLeft: 20, height: 80)
         optionStackView.anchorView(top: view.safeAreaLayoutGuide.topAnchor, right: view.rightAnchor, paddingTop: 16, paddingRight: 20, width: 124, height: 189)
@@ -249,6 +288,23 @@ class ViewController: UIViewController {
 
     }
     
+    @objc func themeTypeButtonAction(sender: UIButton!) {
+        sender.flash()
+        print("Button Tapped")
+        if sender.tag == 1{
+            privateButton.isEnabled = false
+            publishedButton.isEnabled = true
+            privateButton.alpha = 1
+            publishedButton.alpha = 0.5
+        }else{
+            publishedButton.isEnabled = false
+            privateButton.isEnabled = true
+            publishedButton.alpha = 1
+            privateButton.alpha = 0.5
+        }
+
+    }
+    
     func addOptioButtons(){
         let button1 = newButton(title: "Share", tag: 1, fontSize: 15)
         let button2 = newButton(title: "Make Private", tag: 2, fontSize: 15)
@@ -269,6 +325,11 @@ class ViewController: UIViewController {
     func addFollowerAttributes(){
         followerStack.addArrangedSubview(followButton)
         followerStack.addArrangedSubview(followers)
+    }
+    
+    func addThemeTypeAttributes(){
+        themeTypeStack.addArrangedSubview(privateButton)
+        themeTypeStack.addArrangedSubview(publishedButton)
     }
     
     func newButton(title: String, tag: Int, fontSize: CGFloat)->UIButton{
