@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     
     private var following: Bool = false
+    private var topInset: CGFloat = 0
 
     private let mainScrollView: UIScrollView = {
         let view = UIScrollView()
@@ -190,7 +191,7 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         print("Size: ",profileCollectionView.contentSize.height)
-        mainScrollView.contentSize.height = profileCollectionView.contentSize.height + (view.height*0.4)
+        updateScrollViewContentSize()
         followButton.layer.cornerRadius = followButton.frame.height/2
     }
     
@@ -205,6 +206,11 @@ class ViewController: UIViewController {
                 view.layoutIfNeeded()
             }
         }
+    }
+    
+    func updateScrollViewContentSize(){
+        let size = profileCollectionView.contentSize.height + (view.height*0.4)
+        mainScrollView.contentSize.height = size > (view.height + topInset) ? size : (view.height + topInset)
     }
     
     func loadUI(){
@@ -228,7 +234,7 @@ class ViewController: UIViewController {
         
         navigationView.anchorView(top: view.topAnchor, left: view.leftAnchor, right: view.rightAnchor, height: view.height * 0.14)
         
-        let topInset = view.height * 0.11164
+        topInset = view.height * 0.11164
         mainScrollView.anchorView(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
         mainScrollView.contentInset.top = topInset
         
@@ -302,7 +308,11 @@ class ViewController: UIViewController {
             publishedButton.alpha = 1
             privateButton.alpha = 0.5
         }
-
+        profileCollectionView.reloadData()
+        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { (timer) in
+            print("ProfileContentSize: ",self.profileCollectionView.contentSize.height)
+            self.updateScrollViewContentSize()
+        }
     }
     
     func addOptioButtons(){
@@ -373,7 +383,11 @@ class ViewController: UIViewController {
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 17
+        if publishedButton.isEnabled{
+            return 2
+        }else{
+            return 17
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
