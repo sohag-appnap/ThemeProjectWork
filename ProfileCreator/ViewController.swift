@@ -8,6 +8,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    private var following: Bool = false
 
     private let mainScrollView: UIScrollView = {
         let view = UIScrollView()
@@ -112,15 +114,49 @@ class ViewController: UIViewController {
         view.backgroundColor = .clear
         return view
     }()
+    
+    private let followButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = UIColor(red: 38/255, green: 153/255, blue: 251/255, alpha: 1)
+        button.setTitle("Follow", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        button.addTarget(self, action: #selector(followButtonAction), for: .touchUpInside)
+        return button
+    }()
+    
+    private let followers : UILabel = {
+        let view = UILabel()
+        view.font = UIFont.systemFont(ofSize: 12)
+        view.textAlignment = .center
+        view.backgroundColor = .clear
+        view.adjustsFontSizeToFitWidth = true
+        view.text = "15,926 Followers"
+        return view
+    }()
+    
+    private let followerStack: UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.alignment = .fill
+        view.distribution = .fillEqually
+        view.spacing = 0
+        view.backgroundColor = .clear
+        return view
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         loadUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("followButton", followButton.frame.size.height)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         print("Size: ",profileCollectionView.contentSize.height)
         mainScrollView.contentSize.height = profileCollectionView.contentSize.height + (view.height*0.327) + 13
+        followButton.layer.cornerRadius = followButton.frame.height/2
     }
     
     override func viewDidLayoutSubviews() {
@@ -145,6 +181,7 @@ class ViewController: UIViewController {
         mainScrollView.addSubview(userNameStack)
         mainScrollView.addSubview(likeStack)
         mainScrollView.addSubview(profileCollectionView)
+        mainScrollView.addSubview(followerStack)
         
         view.addSubview(optionButton)
         view.addSubview(optionStackView)
@@ -159,11 +196,10 @@ class ViewController: UIViewController {
         mainScrollView.anchorView(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
         mainScrollView.contentInset.top = topInset
         
-        roundView.anchorView(top: mainScrollView.topAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: view.frame.width / 4, height: view.frame.width / 4)
-        roundView.centerX(inView: mainScrollView)
+        roundView.anchorView(top: mainScrollView.topAnchor, left: view.leftAnchor, paddingLeft: view.width * 0.17391304, width: view.frame.width / 4, height: view.frame.width / 4)
         roundView.layer.cornerRadius = view.frame.width / 8
         
-        userNameStack.anchorView(top: roundView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 16, height: 40)
+        userNameStack.anchorView(top: roundView.bottomAnchor, left: view.leftAnchor, right: roundView.rightAnchor, paddingTop: 16, paddingLeft: view.width * 0.17391304, height: 40)
         userNameStack.addArrangedSubview(titleName)
         userNameStack.addArrangedSubview(userId)
         
@@ -176,6 +212,9 @@ class ViewController: UIViewController {
         navigationTitle.anchorView(left: navigationView.leftAnchor, bottom: navigationView.bottomAnchor, right: optionButton.leftAnchor, paddingLeft: 20, height: 80)
         optionStackView.anchorView(top: view.safeAreaLayoutGuide.topAnchor, right: view.rightAnchor, paddingTop: 16, paddingRight: 20, width: 124, height: 189)
         addOptioButtons()
+        
+        followerStack.anchorView(top: roundView.centerYAnchor, right: view.rightAnchor, paddingRight: view.width * 0.17391304, width: view.width * 0.24, height: view.height * 0.0703125)
+        addFollowerAttributes()
     }
     
     func profileInfoViews() {
@@ -226,6 +265,11 @@ class ViewController: UIViewController {
         optionStackView.addArrangedSubview(button4)
     }
     
+    func addFollowerAttributes(){
+        followerStack.addArrangedSubview(followButton)
+        followerStack.addArrangedSubview(followers)
+    }
+    
     func newButton(title: String, tag: Int, fontSize: CGFloat)->UIButton{
         let button = UIButton()
         button.setTitle(title, for: .normal)
@@ -251,6 +295,16 @@ class ViewController: UIViewController {
             print("Uses Terms Button Pressed")
         default:
             print("Default")
+        }
+    }
+    
+    @objc func followButtonAction(sender: UIButton!) {
+        sender.flash()
+        following.toggle()
+        if following{
+            followButton.setTitle("Following", for: .normal)
+        }else{
+            followButton.setTitle("Follow", for: .normal)
         }
     }
 }
