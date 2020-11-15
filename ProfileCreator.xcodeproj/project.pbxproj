@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		281FEE51256138BF0065A7C6 /* TagViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281FEE50256138BF0065A7C6 /* TagViewCell.swift */; };
+		281FEE54256138C90065A7C6 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281FEE53256138C90065A7C6 /* RoundButton.swift */; };
+		281FEE57256138D10065A7C6 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281FEE56256138D10065A7C6 /* ProductCell.swift */; };
+		281FEE5F256139300065A7C6 /* ImageSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281FEE5E256139300065A7C6 /* ImageSlider.swift */; };
+		281FEE62256139350065A7C6 /* ImageSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281FEE61256139350065A7C6 /* ImageSliderCell.swift */; };
+		281FEE6625613A0E0065A7C6 /* ThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281FEE6525613A0E0065A7C6 /* ThemeViewController.swift */; };
 		282A09A7255903BF007D282F /* ButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282A09A6255903BF007D282F /* ButtonExtension.swift */; };
 		28426F712553D13900627647 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28426F702553D13900627647 /* AppDelegate.swift */; };
 		28426F732553D13900627647 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28426F722553D13900627647 /* SceneDelegate.swift */; };
@@ -22,6 +28,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		281FEE50256138BF0065A7C6 /* TagViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagViewCell.swift; sourceTree = "<group>"; };
+		281FEE53256138C90065A7C6 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		281FEE56256138D10065A7C6 /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		281FEE5E256139300065A7C6 /* ImageSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSlider.swift; sourceTree = "<group>"; };
+		281FEE61256139350065A7C6 /* ImageSliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSliderCell.swift; sourceTree = "<group>"; };
+		281FEE6525613A0E0065A7C6 /* ThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewController.swift; sourceTree = "<group>"; };
 		282A09A6255903BF007D282F /* ButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonExtension.swift; sourceTree = "<group>"; };
 		28426F6D2553D13900627647 /* ProfileCreator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProfileCreator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28426F702553D13900627647 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +61,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		281FEE5D256138EC0065A7C6 /* Image Slider */ = {
+			isa = PBXGroup;
+			children = (
+				281FEE5E256139300065A7C6 /* ImageSlider.swift */,
+				281FEE61256139350065A7C6 /* ImageSliderCell.swift */,
+			);
+			name = "Image Slider";
+			path = "../Image Slider";
+			sourceTree = "<group>";
+		};
+		281FEE64256139C80065A7C6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				28426F742553D13900627647 /* ViewController.swift */,
+				281FEE6525613A0E0065A7C6 /* ThemeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		282A09AA2559381E007D282F /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -77,12 +108,13 @@
 		28426F6F2553D13900627647 /* ProfileCreator */ = {
 			isa = PBXGroup;
 			children = (
+				281FEE5D256138EC0065A7C6 /* Image Slider */,
 				28BE86172557F353000EA15F /* Cells */,
+				281FEE64256139C80065A7C6 /* Controller */,
 				28426F8C2553EE5D00627647 /* CustomViews */,
 				282A09AA2559381E007D282F /* Helper */,
 				28426F702553D13900627647 /* AppDelegate.swift */,
 				28426F722553D13900627647 /* SceneDelegate.swift */,
-				28426F742553D13900627647 /* ViewController.swift */,
 				28426F762553D13900627647 /* Main.storyboard */,
 				28426F7C2553D13900627647 /* Assets.xcassets */,
 				28426F7E2553D13900627647 /* LaunchScreen.storyboard */,
@@ -95,6 +127,7 @@
 		28426F8C2553EE5D00627647 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				281FEE53256138C90065A7C6 /* RoundButton.swift */,
 				28426F8D2553EE9800627647 /* LikeView.swift */,
 				28426F912553EEAF00627647 /* LikeView.xib */,
 			);
@@ -105,6 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				28BE86182557F385000EA15F /* MyCollectionViewCell.swift */,
+				281FEE50256138BF0065A7C6 /* TagViewCell.swift */,
+				281FEE56256138D10065A7C6 /* ProductCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -181,10 +216,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				28426F892553D1C500627647 /* Extension.swift in Sources */,
+				281FEE57256138D10065A7C6 /* ProductCell.swift in Sources */,
+				281FEE6625613A0E0065A7C6 /* ThemeViewController.swift in Sources */,
+				281FEE62256139350065A7C6 /* ImageSliderCell.swift in Sources */,
+				281FEE5F256139300065A7C6 /* ImageSlider.swift in Sources */,
+				281FEE51256138BF0065A7C6 /* TagViewCell.swift in Sources */,
 				282A09A7255903BF007D282F /* ButtonExtension.swift in Sources */,
 				28BE86192557F385000EA15F /* MyCollectionViewCell.swift in Sources */,
 				28426F7B2553D13900627647 /* ProfileCreator.xcdatamodeld in Sources */,
 				28426F752553D13900627647 /* ViewController.swift in Sources */,
+				281FEE54256138C90065A7C6 /* RoundButton.swift in Sources */,
 				28426F8E2553EE9800627647 /* LikeView.swift in Sources */,
 				28426F712553D13900627647 /* AppDelegate.swift in Sources */,
 				28426F732553D13900627647 /* SceneDelegate.swift in Sources */,
