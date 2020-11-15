@@ -17,6 +17,7 @@ class ThemeViewController: UIViewController {
     @IBOutlet weak var productCollection: UICollectionView!
     @IBOutlet weak var optionVIew: UIView!
     @IBOutlet weak var mainViewHeightConstrait: NSLayoutConstraint!
+    @IBOutlet weak var mainTopNavBar: UIView!
     
     let image = [ "Slipknot","slip", "flower" ]
     let item = ["Slipknot","slip", "flower" , "Slipknot","slip", "flower" , "Slipknot","slip", "flower" ]
@@ -113,7 +114,7 @@ extension ThemeViewController: UIScrollViewDelegate{
             if newAlpha >= 0 && newAlpha <= 1{
                 topSpaceView.backgroundColor = UIColor(displayP3Red: 255/255, green: 255/255, blue: 255/255, alpha: newAlpha)
                 topNavView.backgroundColor = UIColor(displayP3Red: 255/255, green: 255/255, blue: 255/255, alpha: newAlpha)
-                topNavView.dropShadow(color: UIColor(displayP3Red: 200/255, green: 200/255, blue: 200/255, alpha: newAlpha), opacity: 0.5, offSet: CGSize(width: 5, height: 5), radius: 5, scale: true)
+                mainTopNavBar.dropShadow(color: UIColor(displayP3Red: 200/255, green: 200/255, blue: 200/255, alpha: newAlpha), opacity: 0.5, offSet: CGSize(width: 5, height: 5), radius: 5, scale: true)
             
             }else if newAlpha < 0{
                 topSpaceView.backgroundColor = .clear
