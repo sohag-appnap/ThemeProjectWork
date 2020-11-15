@@ -11,7 +11,6 @@ class ThemeViewController: UIViewController {
 
     @IBOutlet weak var sliderView: ImageSlider!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var topSpaceView: UIView!
     @IBOutlet weak var topNavView: UIView!
     @IBOutlet weak var tagCollection: UICollectionView!
     @IBOutlet weak var productCollection: UICollectionView!
@@ -34,7 +33,6 @@ class ThemeViewController: UIViewController {
         sliderView.image = image
         scrollView.delegate = self
         scrollView.contentInset.top = view.frame.height * (0.140)
-        topSpaceView.backgroundColor = .clear
         topNavView.backgroundColor = .clear
         tagCollection.dataSource = self
         tagCollection.delegate = self
