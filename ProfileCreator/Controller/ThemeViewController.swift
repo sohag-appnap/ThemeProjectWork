@@ -18,6 +18,9 @@ class ThemeViewController: UIViewController {
     @IBOutlet weak var optionVIew: UIView!
     @IBOutlet weak var mainViewHeightConstrait: NSLayoutConstraint!
     @IBOutlet weak var mainTopNavBar: UIView!
+    @IBOutlet weak var blurView: UIView!
+    @IBOutlet weak var blurOptionView: UIView!
+    @IBOutlet weak var optionStackView: UIStackView!
     
     let image = [ "Slipknot","slip", "flower" ]
     let item = ["Slipknot","slip", "flower" , "Slipknot","slip", "flower" , "Slipknot","slip", "flower" ]
@@ -26,6 +29,8 @@ class ThemeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        blurView.addBlurEffect()
+        blurOptionView.addBlurEffect()
         sliderView.image = image
         scrollView.delegate = self
         scrollView.contentInset.top = view.frame.height * (0.140)
@@ -55,8 +60,13 @@ class ThemeViewController: UIViewController {
     @IBAction func optionButtonPressed(_ sender: Any) {
         if optionToggle{
             UIView.animate(withDuration: 0.5) {
-                self.optionVIew.dropShadow(color: UIColor(displayP3Red: 200/255, green: 200/255, blue: 200/255, alpha: 1), opacity: 0.5, offSet: CGSize(width: 5, height: 5), radius: 5, scale: true)
+                self.blurOptionView.layer.shadowColor = UIColor.black.cgColor
+                self.blurOptionView.layer.shadowOffset = CGSize(width: 0, height: 5)
+                self.blurOptionView.layer.shadowRadius = 15
+                self.blurOptionView.layer.shadowOpacity = 0.2
+                //self.blurOptionView.dropShadow(color: UIColor(displayP3Red: 200/255, green: 200/255, blue: 200/255, alpha: 1), opacity: 0.5, offSet: CGSize(width: 5, height: 5), radius: 5, scale: true)
                 self.optionVIew.isHidden = false
+                self.blurOptionView.isHidden = false
             }
             optionToggle = false
         }
@@ -68,6 +78,7 @@ class ThemeViewController: UIViewController {
             UIView.animate(withDuration: 0.5) {
                 self.optionToggle = true
                 self.optionVIew.isHidden = true
+                self.blurOptionView.isHidden = true
             }
         }else{
             optionToggle = false
@@ -107,23 +118,23 @@ class ThemeViewController: UIViewController {
 extension ThemeViewController: UIScrollViewDelegate{
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView==self.scrollView{
-            let offset = -view.frame.height * (0.140)
-            let newAlpha = 1 - (self.scrollView.contentOffset.y/offset)
-
-            if newAlpha >= 0 && newAlpha <= 1{
-                topSpaceView.backgroundColor = UIColor(displayP3Red: 255/255, green: 255/255, blue: 255/255, alpha: newAlpha)
-                topNavView.backgroundColor = UIColor(displayP3Red: 255/255, green: 255/255, blue: 255/255, alpha: newAlpha)
-                mainTopNavBar.dropShadow(color: UIColor(displayP3Red: 200/255, green: 200/255, blue: 200/255, alpha: newAlpha), opacity: 0.5, offSet: CGSize(width: 5, height: 5), radius: 5, scale: true)
-            
-            }else if newAlpha < 0{
-                topSpaceView.backgroundColor = .clear
-                topNavView.backgroundColor = .clear
-            }else{
-                topSpaceView.backgroundColor = .white
-                topNavView.backgroundColor = .white
-            }
-        }
+//        if scrollView==self.scrollView{
+//            let offset = -view.frame.height * (0.140)
+//            let newAlpha = 1 - (self.scrollView.contentOffset.y/offset)
+//
+//            if newAlpha >= 0 && newAlpha <= 1{
+//                topSpaceView.backgroundColor = UIColor(displayP3Red: 255/255, green: 255/255, blue: 255/255, alpha: newAlpha)
+//                topNavView.backgroundColor = UIColor(displayP3Red: 255/255, green: 255/255, blue: 255/255, alpha: newAlpha)
+//                mainTopNavBar.dropShadow(color: UIColor(displayP3Red: 200/255, green: 200/255, blue: 200/255, alpha: newAlpha), opacity: 0.5, offSet: CGSize(width: 5, height: 5), radius: 5, scale: true)
+//
+//            }else if newAlpha < 0{
+//                topSpaceView.backgroundColor = .clear
+//                topNavView.backgroundColor = .clear
+//            }else{
+//                topSpaceView.backgroundColor = .white
+//                topNavView.backgroundColor = .white
+//            }
+//        }
         
     }
 }
