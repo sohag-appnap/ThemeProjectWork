@@ -289,6 +289,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AWb-Xn-fxk">
                                         <rect key="frame" x="0.0" y="0.0" width="56" height="62"/>
                                         <state key="normal" image="backarrow"/>
+                                        <connections>
+                                            <action selector="backButtonAction:" destination="2Tz-KY-oCG" eventType="touchUpInside" id="BYx-YM-F21"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ru-a4-Dsh">
                                         <rect key="frame" x="368" y="0.0" width="46" height="62"/>

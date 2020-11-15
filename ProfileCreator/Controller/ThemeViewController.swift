@@ -47,6 +47,9 @@ class ThemeViewController: UIViewController {
         super.viewDidAppear(true)
         mainViewHeightConstrait.constant = view.frame.size.height * 0.881696429 + productCollection.contentSize.height - scrollView.frame.size.height - view.frame.height * (0.060)
     }
+    @IBAction func backButtonAction(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
     
     @IBAction func optionButtonPressed(_ sender: Any) {
         if optionToggle{
