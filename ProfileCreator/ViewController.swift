@@ -39,7 +39,7 @@ class ViewController: UIViewController {
     private let optionButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .clear
-        button.setImage(#imageLiteral(resourceName: "option"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "optionIos"), for: .normal)
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         return button
     }()
